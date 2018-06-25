@@ -8,31 +8,51 @@
 
         $(function () {
             $('#btn').click(function () {
-                let formdata = new FormData($('#form'));
-                let setting = {
-                    url: 'http://127.0.0.1:9000/upload/img/',
+                let formdata = new FormData($('#form')[0]);
+                let settings = {
+                    url: 'http://127.0.0.1:9000/1/img/',
                     type: 'post',
                     //不缓存
                     cache: false,
-                    date: formdata,
+                    data: formdata,
                     //告诉ajax不要处理数据
                     processData: false,
                     //告诉ajax不要处理contentType
                     contentType: false,
                     success: function (result) {
-                        alert(111)
+                        $('#img').append($('<img>').attr('src', result.url));
+                        //多文件接收
+                        {#$('#img').append($('<img>').attr('src', result.urls[0]))#}
+                    },
+                    error: function (status) {
+                    },
+                    complete: function () {
                     }
                 };
-                $.ajax(setting)
+                $.ajax(settings);
+                  //阻止form自动提交事件
+                    return false;
             });
 
         })
     </script>
 </head>
 <body>
-<form action="/1/img" method="post" enctype="multipart/form-data" id="form">
-    <input type="file" name="img">
+<form action="/1/img/" method="post" enctype="multipart/form-data" id="form">
+    <input type="file" name="file_img" id="file">
     <input type="button" value="上传" id="btn">
 </form>
+<div id="img">
+
+</div>
+
+{#多文件上传#}
+{#<form id="form" action="{{ url_for('upload.upload_img') }}" method="post" enctype="multipart/form-data">#}
+{#    <input type="file" multiple name="files">#}
+{#    <input type="button" id="btn" value="上传">#}
+{#</form>#}
+{#<div id="wrap">#}
+{##}
+{#</div>#}
 </body>
 </html>
