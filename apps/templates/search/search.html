@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#语法#}
+<p>字符串:{{ hello }}</p>
+<p>列表:{{ li[0] }} - {{ li[1] }}</p>
+<p>字典:{{ dt['name'] }}-{{ dt['age'] }}</p>
+<p>对象:{{ shop.name }}-{{ shop.title }} </p>
+
+{% if li %}
+    <ul>
+        {% for item in li %}
+            <li>{{ item }}</li>
+        {% endfor %}
+
+    </ul>
+{% else %}
+    <p>暂无数据</p>
+{% endif %}
+<p>自定义过滤器:{{ li[0] | add(li[1],li[2]) }}</p>
+</body>
+</html>

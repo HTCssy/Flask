@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="{{ url_for('static',filename='css/style.css') }}">
+    {#    <link href="../static/css/style.css">#}
+</head>
+
+
+<body>
+<!-- url_for('search.add',name='xm') -->
+<!--/search/add/xm/-->
+
+<!-- http://127.0.0.1:9000/search/add/xm/-->
+<!-- url_for('search.add',name='xm' ,_external=True) -->
+<!-- 反向解析 -->
+<a href="{{ url_for('search.add',name='xm') }}?key=value">添加</a>
+</body>
+</html>

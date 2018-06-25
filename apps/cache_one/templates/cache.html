@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 缓存内容-->
+    {% cache 60 %}
+        {{ msg }}
+    {% endcache %}
+</body>
+</html>

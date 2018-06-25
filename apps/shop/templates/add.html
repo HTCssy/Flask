@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form action="{{ url_for('shop.add')  }}" method="post">
+     商品名<input type="text" name="name" value=""><hr/>
+     标题<input type="text" name="sub_title" value=""><hr/>
+     原价<input type="text" name="original_price" value=""><hr/>
+     现价<input type="text" name="promote_price" value=""><hr/>
+     库存<input type="text" name="stock" value=""><hr/>
+     关联<input type="text" name="cate_id" value=""><hr/>
+        <input type="submit" value="更新">
+ </form>
+</body>
+</html>

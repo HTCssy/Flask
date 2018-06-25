@@ -1,0 +1,7 @@
+{% extends 'extends/layout.html' %}
+{% block page_content %}
+    {% include 'include/top.html' %}
+    <h1>这个是子类的之前</h1>
+    {{ super() }}
+    <h1>这个是子类的之后插入</h1>
+{% endblock %}

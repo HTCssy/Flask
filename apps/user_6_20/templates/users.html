@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% import 'macro/macro.html' as macro %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        td, th {
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            float: left;
+        }
+
+        ul a {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>注册时间</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+            <td>{{ user.uid }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.create_date }}</td>
+            <td></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if paginate %}
+        {{ macro.pagination(paginate,'user_6_20.query_limit') }}
+    {% endif %}
+</body>
+</html>
+<!-- 宏macro就是函数 -->
+
+<!--
+如果有上一页  比如当前是page=5, page-1
+<a <a href="http://127.0.0.1:9000/user/limit/4/10/">4</a>
+如果没有呢
+<a href="#">上页</a>
+-->
+
+{#<!--#}
+{#<ul>#}
+{#    <li>#}
+{#        <a href="#}
+{#        {% if paginate.has_prev %}#}
+{#            {{ url_for('user_6_20.query_limit', page=paginate.page - 1, size=10) }}#}
+{#            {% else %}#}
+{#                ##}
+{#        {% endif %}#}
+{#">上一页</a>#}
+{#    </li>#}
+{#    {% for page in paginate.iter_pages() %}#}
+{#        {% if page %}#}
+{#            <li><a href="{{ url_for('user_6_20.query.limit', page=page, size=10) }}"></a></li>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{#    <li>#}
+{#        <a href="#}
+{#       % if paginate.has_next %}#}
+{#        {{ url_for('user_6_20.query_limit',page=paginate.page + 1,size=10) }}#}
+{#    {% else %}#}
+{#        ##}
+{#    {% endif %}#}
+{#">下一页</a>#}
+{#    </li>#}
+{#</ul>#}
+{#-->#}

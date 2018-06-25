@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除</title>
+</head>
+<body>
+<form action="{{ url_for('shop.delete',shop_id = shop.shop_id) }}">
+     关联<input type="text" name="cate_id" value=""><hr/>
+        <input type="submit" value="更新">
+</form>
+</body>
+</html>
